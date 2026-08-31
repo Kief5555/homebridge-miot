@@ -6,6 +6,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added capability-driven local Matter fallbacks for robots that expose the legacy miIO command set.
+- Added MiCloud reachability fallback for Matter robot polling.
+- Added an optional HomeKit Return-to-Dock switch for Matter robot automations and Shortcuts.
+
+### Fixed
+- Kept Matter robot exposure disabled unless it is explicitly enabled and Homebridge provides the complete robot Matter API.
+- Reused the most recent discovery/2FA login when caching a MiCloud session and enabled the cache for Matter robots.
+- Removed vertically rendered loading text from custom UI spinners.
+- Quarantined removed robots' stale external Matter storage so old vacuums no longer remain in the pairing list.
+- Recreated configured Matter robots with fresh pairing credentials after they are removed from Homebridge's Matter accessory cache.
+- Reported fully charged robots as the standard Matter docked state so Homebridge accepts the accessory definition.
+
+## [1.9.0] - 2026-07-24
+### Added
+- Added support for login to MiCloud via QR code. That should improve and simply caching of the session. Thanks @Debbie-Yuan for the contribution.
+- Prefer cached session for device discovery. No need to enter login credentials if a session is already cached. Thanks @Debbie-Yuan for the contribution.
+
+### Fixed
+- Fix cuco.plug.cp1 spec. Thanks @Debbie-Yuan for the contribution.
+
 ## [1.8.7] - 2026-03-01
 ### Added
 - Added support for yunmi.kettle.v19 (Xiaomi Mi Smart Kettle Pro 2) kettle Thanks @zloirog
